@@ -39,3 +39,10 @@ function transformarPreco(produto:{ nome:string; preco: string}) {
 
 console.log(transformarPreco(nintendo));
 
+//Exercício
+function normalizarTexto(texto: string) {
+    return texto.trim().toLowerCase();
+}
+
+console.log(normalizarTexto(' EdU'));
+

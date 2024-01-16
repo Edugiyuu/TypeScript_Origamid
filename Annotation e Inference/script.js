@@ -30,3 +30,8 @@ function transformarPreco(produto) {
     return produto;
 }
 console.log(transformarPreco(nintendo));
+//Exercício
+function normalizarTexto(texto) {
+    return texto.trim().toLowerCase();
+}
+console.log(normalizarTexto(' EdU'));
