@@ -1,18 +1,24 @@
 "use strict";
-const frase = 'Front End';
-const preco = 500;
-const condi = true;
-console.log(typeof (frase));
-console.log(typeof (preco));
-console.log(typeof (condi));
-console.log(typeof []);
-console.log(typeof null);
-/* if (typeof frase === 'string') {
-  console.log('frase é string');
+let total = 200;
+total = '300';
+/*
+const button = document.querySelector('button');
+
+button?.click(); */
+// 1 - Crie uma função chamada toNumber
+// 2 - A função pode receber number | string
+// 3 - Se a função receber um número, retorne um número
+// 4 - Se a função receber uma string, retorne um número
+// 5 - Se ela receber algo diferente, retorne um erro. (throw "value deve ser um número ou uma string")
+function toNumber(value) {
+    if (typeof value === 'number') {
+        return value;
+    }
+    else if (typeof value === 'string') {
+        return Number(value);
+    }
+    else {
+        throw 'value deve ser numero ou string';
+    }
 }
-if (typeof preco === 'number') {
-  console.log('preco é number');
-}
-if (typeof condi === 'boolean') {
-  console.log('condi é boolean');
-} */
+console.log(toNumber('2000'));
