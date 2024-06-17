@@ -1,18 +1,5 @@
 "use strict";
 //Funciona assim tbm
-/* function preencherDados(dados: {
-  nome: string;
-  preco: number;
-  teclado: boolean;
-}) {
-  document.body.innerHTML += `
-  <div>
-    <h2>${dados.nome}</h2>
-    <p>R$ ${dados.preco}</p>
-    <p>Inclui teclado: ${dados.teclado ? 'sim' : 'não'}</p>
-  </div>
-  `;
-} */
 function preencherDados(dados) {
     document.body.innerHTML += `
   <div>
@@ -49,10 +36,16 @@ async function fetchProduct() {
 }
 fetchProduct();
 function showProduct(data) {
-    document.body.innerHTML += `
+    document.body.innerHTML = `
     <div>
       <h2>${data.nome}</h2>
-      <h2></h2>
+      <p>R$ ${data.preco}</p>
+      <div>
+        <h3>Fabricante: ${data.empresaFabricante.nome}</h3>
+      </div>
+      <div>
+        <h3>Montadora: ${data.empresaMontadora.nome}</h3>
+      </div>
     </div>
   `;
 }

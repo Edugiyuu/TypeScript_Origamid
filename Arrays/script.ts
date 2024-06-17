@@ -17,31 +17,43 @@ Existem apenas dois níveis de cursos, Iniciante (iniciante)
 e Avançado (avancado). Se for para iniciante pinte o título de azul
 para avançado pinte de vermelho. */
 
+interface NumeroDeAulas{
+  
+}
+interface Cursos{
+  aulas: number
+  gratuito: boolean
+  horas:number
+  idDeAulas: number[]
+  nivel: 'iniciante' | 'avancado'
+  nome: string
+  tags:string[]
+}
+
 async function fetchCursos() {
   const response = await fetch('https://api.origamid.dev/json/cursos.json');
   const data = await response.json();
-  mostrarCursos(data);
+ console.log(data);
+ mostrarCursos(data);
 }
 
 fetchCursos();
 
-interface Aulas{
-  nome:string;
-  horas:number;
-  aulas:string;
-  gratuito:false;
-  tags:string[];
-  idAulas:number[];
-  nivel:'iniciante' | 'avancado';
-}
-function mostrarCursos(cursos:Aulas[]) {
-  cursos.forEach(curso => {
+function mostrarCursos(cursos: Cursos[]) {
+  for (let i = 0; i < cursos.length; i++) {
     document.body.innerHTML += `
     <div>
-      <h2>${curso.nome}</h2>
-      <p>${curso.horas} Horas</p>
-      <p>${curso.aulas} Aulas</p>
+      <h2>${cursos[i].nome}</h2>
+      <p>Aulas:${cursos[i].aulas}</p>
+      <div>
+        <h3>Preço: ${cursos[i].gratuito}</h3>
+      </div>
+      <div>
+        <h3>Nivel: ${cursos[i].nivel}</h3>
+      </div>
     </div>
   `;
-  });
+    
+  }
+  
 }

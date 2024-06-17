@@ -8,6 +8,7 @@ if (video instanceof HTMLVideoElement){
 video2?.volume; */
 const links = document.querySelectorAll('.link');
 //Não é um array
+//NodeList é um conjunto de elementos HTML em um página web
 links.forEach((link) => {
     if (link instanceof HTMLAnchorElement) {
         //porque não usar typeof??
@@ -18,10 +19,19 @@ links.forEach((link) => {
 //NodeListOf<Element>
 //Oque é nodeList?
 //Não é um array
-function ativarElemento(elemento) {
+function ativarElementoAnchor(elemento) {
+    elemento.style.color = 'red';
+    elemento.style.border = '2px solid red';
+}
+function ativarElementoButton(elemento) {
     elemento.style.color = 'red';
     elemento.style.border = '2px solid red';
 }
 links.forEach((link) => {
-    ativarElemento(link);
+    if (link instanceof HTMLAnchorElement) {
+        ativarElementoAnchor(link);
+    }
+    if (link instanceof HTMLButtonElement) {
+        ativarElementoButton(link);
+    }
 });

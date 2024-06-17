@@ -1,14 +1,66 @@
-/* class Produto{
+//Aula - Instanceof1
+
+//Primeira forma de ser feita:
+class Celular{
   nome: string;
-  constructor(nome:string){
+  marca: string;
+  constructor(nome:string, marca: string){
     this.nome = nome;
+    this.marca = marca;
   }
 }
-const livro = new Produto("Harry Potter");
+class Console{
+  nome: string;
+  marca: string;
+  constructor(nome:string, marca: string){
+    this.nome = nome;
+    this.marca = marca;
+  }
+}
 
-console.log(livro.nome); */
+//Segunda forma de ser feita:
+/* class AparelhoEletronico {
+  nome: string;
+  marca: string;
+  constructor(nome: string, marca: string) {
+    this.nome = nome;
+    this.marca = marca;
+  }
+}
 
-// Aula - Instanceof1
+class Celular extends AparelhoEletronico {
+  constructor(nome: string, marca: string) {
+    super(nome, marca);
+  }
+}
+
+class Console extends AparelhoEletronico {
+  constructor(nome: string, marca: string) {
+    super(nome, marca);
+  }
+} */
+// A primeira forma achei mais facil de entender
+
+function criarAparelhoEletronico(nome:string,marca?:string) {
+  if (nome === 'A23') {
+    return new Celular ("A23","Apple")
+  }
+  if (nome === 'Nintendo Switch') {
+    return new Console('Nintendo Switch','Nintendo')
+  }
+  return null
+}
+
+const algumProduto = criarAparelhoEletronico('Nintendo Switch')
+
+if (algumProduto instanceof Celular) {
+  console.log("O produto feito é um Celular " + algumProduto.nome);
+}
+if (algumProduto instanceof Console) {
+  console.log("O produto feito é um Console portatil " + algumProduto.nome);
+}
+
+//---------------------------------------------
  class Produto{
   nome: string;
   preco:number;
@@ -28,7 +80,7 @@ console.log(livro.precoReal());
 
 console.log(livro instanceof Array);
 
-
+/* 
 class Jogo{
   jogadores: number;
   constructor(jogadores: number){
@@ -40,7 +92,8 @@ class Livro{
   constructor(autor: string){
     this.autor = autor;
   }
-} 
+}
+
 function buscarProduto(busca:string) {
   if (busca === 'Harry Potter') {
     return new Livro('J. K. Rowling')
@@ -49,8 +102,7 @@ function buscarProduto(busca:string) {
     return new Jogo(1)
   }
   return null
-} 
-// Aula - Instanceof1
+}  */
 
 //Aula - InstanceOf 2
 /* class Produto{
@@ -86,10 +138,13 @@ function buscarProduto(busca:string) {
   }
   return null
 } */
+
+
+
 //Aula - InstanceOf 2
 
-
-const produto = buscarProduto('Harry Potter')
+/* 
+ const produto = buscarProduto('Harry Potter')
 
 if (produto instanceof Produto) {
   console.log(produto.nome);
@@ -103,4 +158,4 @@ if (produto instanceof Livro) {
 if (produto instanceof Jogo) {
   console.log(produto.jogadores);
 }
-
+  */

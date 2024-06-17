@@ -1,14 +1,61 @@
 "use strict";
-/* class Produto{
+//Aula - Instanceof1
+//Primeira forma de ser feita:
+class Celular {
+    nome;
+    marca;
+    constructor(nome, marca) {
+        this.nome = nome;
+        this.marca = marca;
+    }
+}
+class Console {
+    nome;
+    marca;
+    constructor(nome, marca) {
+        this.nome = nome;
+        this.marca = marca;
+    }
+}
+//Segunda forma de ser feita:
+/* class AparelhoEletronico {
   nome: string;
-  constructor(nome:string){
+  marca: string;
+  constructor(nome: string, marca: string) {
     this.nome = nome;
+    this.marca = marca;
   }
 }
-const livro = new Produto("Harry Potter");
 
-console.log(livro.nome); */
-// Aula - Instanceof1
+class Celular extends AparelhoEletronico {
+  constructor(nome: string, marca: string) {
+    super(nome, marca);
+  }
+}
+
+class Console extends AparelhoEletronico {
+  constructor(nome: string, marca: string) {
+    super(nome, marca);
+  }
+} */
+// A primeira forma achei mais facil de entender
+function criarAparelhoEletronico(nome, marca) {
+    if (nome === 'A23') {
+        return new Celular("A23", "Apple");
+    }
+    if (nome === 'Nintendo Switch') {
+        return new Console('Nintendo Switch', 'Nintendo');
+    }
+    return null;
+}
+const algumProduto = criarAparelhoEletronico('Nintendo Switch');
+if (algumProduto instanceof Celular) {
+    console.log("O produto feito é um Celular " + algumProduto.nome);
+}
+if (algumProduto instanceof Console) {
+    console.log("O produto feito é um Console portatil " + algumProduto.nome);
+}
+//---------------------------------------------
 class Produto {
     nome;
     preco;
@@ -25,28 +72,29 @@ console.log(livro.nome);
 console.log(livro.preco);
 console.log(livro.precoReal());
 console.log(livro instanceof Array);
-class Jogo {
-    jogadores;
-    constructor(jogadores) {
-        this.jogadores = jogadores;
-    }
+/*
+class Jogo{
+  jogadores: number;
+  constructor(jogadores: number){
+    this.jogadores = jogadores;
+  }
 }
-class Livro {
-    autor;
-    constructor(autor) {
-        this.autor = autor;
-    }
+class Livro{
+  autor: string;
+  constructor(autor: string){
+    this.autor = autor;
+  }
 }
-function buscarProduto(busca) {
-    if (busca === 'Harry Potter') {
-        return new Livro('J. K. Rowling');
-    }
-    if (busca === 'Dark Souls') {
-        return new Jogo(1);
-    }
-    return null;
-}
-// Aula - Instanceof1
+
+function buscarProduto(busca:string) {
+  if (busca === 'Harry Potter') {
+    return new Livro('J. K. Rowling')
+  }
+  if (busca === 'Dark Souls') {
+    return new Jogo(1)
+  }
+  return null
+}  */
 //Aula - InstanceOf 2
 /* class Produto{
   nome: string;
@@ -82,14 +130,19 @@ function buscarProduto(busca:string) {
   return null
 } */
 //Aula - InstanceOf 2
-const produto = buscarProduto('Harry Potter');
+/*
+ const produto = buscarProduto('Harry Potter')
+
 if (produto instanceof Produto) {
-    console.log(produto.nome);
+  console.log(produto.nome);
+  
 }
 if (produto instanceof Livro) {
-    console.log(produto.autor);
+  console.log(produto.autor);
+  
 }
 //verifica se o produto é um livro ou um jogo (não da pra usar sem esses ifs já q pode ser Livro, Jogo ou Null)
 if (produto instanceof Jogo) {
-    console.log(produto.jogadores);
+  console.log(produto.jogadores);
 }
+  */

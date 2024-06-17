@@ -8,7 +8,7 @@ video2?.volume; */
 
 const links = document.querySelectorAll('.link')
 //Não é um array
-
+//NodeList é um conjunto de elementos HTML em um página web
 
 links.forEach((link)=>{
     if (link instanceof HTMLAnchorElement) {
