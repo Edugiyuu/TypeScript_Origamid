@@ -1,28 +1,53 @@
 "use strict";
-function calcular(forma) { }
-function normalizar(valor) {
-    if (typeof valor === "string") {
-        return valor.trim().toLowerCase();
+async function fetchCursos() {
+    const response = await fetch('https://api.origamid.dev/json/cursos.json');
+    const json = await response.json();
+    handleCursos(json);
+}
+fetchCursos();
+function handleCursos(data) {
+    if (data instanceof Array) {
+        console.log('É instância de Array');
     }
-    else {
-        return valor.map((item) => item.trim().toLowerCase());
+    if (Array.isArray(data)) {
+        console.log('É array');
     }
 }
-// ele não identifica o .toUpperCase() já que ele não sabe se é uma string ou um array de string
-// for isso usamos o overload
-console.log(normalizar(' PRODUTO').toUpperCase());
-console.log(normalizar([' PROdUTO 1 ', 'PRODUTO 2']).filter(Boolean));
-function arredondar(valor) {
-    if (typeof valor === "number") {
-        return Math.floor(valor);
+//--------------------------------------------------
+// apartir do momento que coloco o is a função tem que ser BOOLEAN
+function isString(value) {
+    //e aqui ela vai retornar true se o valor for string se não for string ela não executa
+    return typeof value === 'string';
+}
+function handleData(data) {
+    // verifica se o data é uma string usando a função isString
+    if (isString(data)) {
+        console.log(data.toUpperCase());
+    }
+    // se data não for string nada acontece
+}
+handleData('Origamid'); //  no console.log é ORIGAMID
+handleData(200); // no console.log é nada
+//-----------------------------------------------------------
+async function fetchProduto() {
+    const response = await fetch('https://api.origamid.dev/json/notebook.json');
+    const json = await response.json();
+    handleProduto(json);
+}
+fetchProduto();
+function isProduto(value) {
+    if (value &&
+        typeof value === 'object' &&
+        'nome' in value &&
+        'preco' in value) {
+        return true;
     }
     else {
-        /*   var valorString = Math.floor(Number(valor)).toString()
-        return valorString
-        */
-        var valorString = Math.floor(Number(valor));
-        return valorString.toString();
+        return false;
     }
 }
-console.log(arredondar(5.2));
-console.log(arredondar('4.2'));
+function handleProduto(data) {
+    if (isProduto(data)) {
+        console.log(data);
+    }
+}
