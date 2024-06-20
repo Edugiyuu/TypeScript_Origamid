@@ -17,5 +17,4 @@ function mostrarQuantidade(produto) {
 }
 mostrarQuantidade(produto1);
 mostrarQuantidade(produto2);
-// erro, não possui quantidade
-/*   mostrarQuantidade(servico1); */
+//# sourceMappingURL=script.js.map
